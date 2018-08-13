@@ -6,45 +6,26 @@ public class Email {
     private String firstName;
     private String lastName;
     private String password;
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     private String department;
     private String company;
     private String generatedEmail;
     private String alternateEmail;
-    int mailboxCapacity = 500;
-    public static final String SEPARATOR = ".";
-    public static final String AT = "@";
-    public static final String HOST = ".com";
-    public static final int defaultPassLength = 8;
+    private int mailboxCapacity = 500;
+    private static final String SEPARATOR = ".";
+    private static final String AT = "@";
+    private static final String HOST = ".com";
+    private static final int defaultPassLength = 8;
 
-    //Constructor to receive the first name and last name
-   public Email(){
+
+    Email(){
+        this.firstName = setFirstName();
+        this.lastName = setLastName();
         this.department = setDepartment();
         this.company = setCompanyName();
         this.password = generatePassword(defaultPassLength);
 
     }
 
-
-
-    //Set the mail capacity
-    public void setMailboxCapacity(int mailboxCapacity){
-        this.mailboxCapacity = mailboxCapacity;
-    }
-
-
-    //Change the password
-    public void changePassword(String password){
-        this.password = password;
-    }
 
     public String getPassword(){
         return this.password;
@@ -54,20 +35,17 @@ public class Email {
         return this.generatedEmail;
     }
 
-
-    //generate email address
-    public String generateEmail(){
-        this.generatedEmail = firstName.toLowerCase() + SEPARATOR + lastName.toLowerCase() + AT + department + SEPARATOR + company + HOST;
-        return this.generatedEmail;
+    public String setFirstName() {
+        System.out.println("Enter First Name: ");
+        Scanner inFirstNAme = new Scanner(System.in);
+        return inFirstNAme.nextLine().toString();
     }
 
-
-    public String showInfo(String firstName,String lastName, String generatedEmail, String password){
-        return firstName + " " + lastName + "\n" + generatedEmail
-                + "\n" + password;
+    public String setLastName() {
+        System.out.println("Enter Last Name: ");
+        Scanner inLastName = new Scanner(System.in);
+        return inLastName.nextLine().toString();
     }
-
-    //Ask for the department
 
     public String getFirstName() {
         return firstName;
@@ -101,6 +79,12 @@ public class Email {
         }
     }
 
+    //generate email address
+    public String generateEmail(){
+        this.generatedEmail = firstName.toLowerCase() + SEPARATOR + lastName.toLowerCase() + AT + department + SEPARATOR + company + HOST;
+        return this.generatedEmail;
+    }
+
     //Generate a random password
     String generatePassword(int passLength){
         String possibleChars = "ABCDEFGHIJKLMONPQRSTUVWXYZ1234567890@#$%&";
@@ -118,8 +102,19 @@ public class Email {
         return in.nextLine().toString();
     }
 
+    public String showInfo(){
+        return firstName + " " + lastName + "\n" + generateEmail()
+                + "\n" + password;
+    }
+
+
     //Set the alternate email
-    public void setAlternateEmail(String alternateEmail){
+    public void alternateEmail(String alternateEmail){
         this.alternateEmail = alternateEmail;
+    }
+
+    //Change the password
+    public void changePassword(String password){
+        this.password = password;
     }
 }
