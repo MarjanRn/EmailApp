@@ -62,14 +62,31 @@ public class Email {
     }
 
 
-    public String showInfo(){
+    public String showInfo(String firstName,String lastName, String generatedEmail, String password){
         return firstName + " " + lastName + "\n" + generatedEmail
                 + "\n" + password;
     }
 
     //Ask for the department
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
     private String setDepartment(){
-        System.out.print("Enter the department \n1 for Sales \n2 for Development \n3 for Accounting \n0 for none:");
+        System.out.print("Enter the department \n1 for Sales \n2 for Development \n3 for Accounting \n0 for none:\n");
         Scanner in = new Scanner(System.in);
         int department = in.nextInt();
         switch (department){

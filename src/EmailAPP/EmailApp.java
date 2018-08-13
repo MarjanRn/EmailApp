@@ -11,6 +11,6 @@ public class EmailApp {
         System.out.println("Enter Last Name: ");
         Scanner inLastName = new Scanner(System.in);
         email.setLastName(inLastName.nextLine().toString());
-        System.out.println(email.showInfo());
+        System.out.println(email.showInfo(email.getFirstName(),email.getLastName(),email.generateEmail(),email.getPassword()));
     }
 }
