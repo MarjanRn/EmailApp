@@ -12,10 +12,8 @@ public abstract class Account implements IBaseRate{
         this.name = name;
         this.sSN = sSN;
         this.balance = balance;
-        System.out.println("NAME :  "+ name + "  " + sSN + "  $" + balance);
         index++;
         this.accountNumber = generateAccountNumber();
-        System.out.println("Account#: " + this.accountNumber);
     }
 
     private String generateAccountNumber(){
@@ -23,5 +21,10 @@ public abstract class Account implements IBaseRate{
         int uniqueID = index;
         int randomNumber = (int)(Math.random() * Math.pow(10,3));
         return lastTwoDigits + uniqueID + randomNumber;
+    }
+
+    protected void showInfo(){
+        System.out.println("\nNAME:  "+ name + "  " + sSN + "  $" + balance);
+        System.out.println("Account#: " + this.accountNumber );
     }
 }
