@@ -10,11 +10,18 @@ public class Savings extends Account{
         setSafetyDepositBox();
     }
 
+    @Override
+    public void setRate(){
+        System.out.println("Saving Rate");
+        rate = getBaseRate() - .25;
+    }
+
     protected void showInfo(){
         super.showInfo();
         System.out.println("Account Type: Saving" +
                 "\n" + safetyDepositBoxId +
-                "\n" + safetyDepositBoxKey);
+                "\n" + safetyDepositBoxKey +
+                "\n" + rate);
     }
 
     private void setSafetyDepositBox(){
