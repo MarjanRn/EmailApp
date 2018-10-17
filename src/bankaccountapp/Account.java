@@ -24,7 +24,7 @@ public abstract class Account implements IBaseRate{
     }
 
     protected void showInfo(){
-        System.out.println("\nNAME:  "+ name + "  " + sSN + "  $" + balance);
+        System.out.println("\nNAME:  "+ name + "\nBalance" + "  $" + balance);
         System.out.println("Account#: " + this.accountNumber );
     }
 }
