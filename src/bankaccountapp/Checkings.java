@@ -16,14 +16,6 @@ public class Checkings extends Account{
         rate = getBaseRate() * .15;
     }
 
-//    public void deposit(){
-//        System.out.println("deposit");
-//    }
-//
-//    public void widraw(){
-//        System.out.println("widraw");
-//    }
-
     private void setdebitCard() {
         debitCardNumber = (int) (Math.random()* Math.pow(10,12));
         debitCardPIN = (int) (Math.random()* Math.pow(10,4));

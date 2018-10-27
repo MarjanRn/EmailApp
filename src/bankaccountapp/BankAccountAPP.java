@@ -8,5 +8,11 @@ public class BankAccountAPP {
         savings.showInfo();
         checkings.showInfo();
 
+        savings.deposit(5500);
+        savings.transfer("checking",200);
+        savings.withdraw(125);
+
+        savings.compound();
+
     }
 }
